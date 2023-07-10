@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/overcast/static/css/main.0111d7cc.css",
+    "main.js": "/overcast/static/js/main.c93a159e.js",
+    "static/media/overcast-background.webp": "/overcast/static/media/overcast-background.9bb8f251c6c7c1a24632.webp",
+    "index.html": "/overcast/index.html",
+    "main.0111d7cc.css.map": "/overcast/static/css/main.0111d7cc.css.map",
+    "main.c93a159e.js.map": "/overcast/static/js/main.c93a159e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0111d7cc.css",
+    "static/js/main.c93a159e.js"
+  ]
+}
