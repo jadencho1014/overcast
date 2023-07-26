@@ -1,22 +1,35 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const [data, setData] = useState({});
   const [location, setLocation] = useState("");
+
   const URL = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=fd4b226313eccfec60d764e4a4833256`;
+
   const searchLocation = (event) => {
     if (event.key === "Enter") {
       axios.get(URL).then((res) => {
         setData(res.data);
-        console.log(res.data);
+
+        if (res.data.weather && res.data.weather[0].id < 800) {
+          toast.error("The weather is not suitable for construction!");
+        } else if (res.data.weather) {
+          toast.success("The weather is suitable for construction!");
+        }
       });
+
       setLocation("");
     }
   };
 
   return (
     <div className="App">
+      <div className="title">
+        <h1>Overcast</h1>
+      </div>
       <div className="search">
         <input
           value={location}
@@ -70,6 +83,7 @@ function App() {
           </div>
         )}
       </div>
+      <ToastContainer position="top-right" />
     </div>
   );
 }
